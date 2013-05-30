@@ -31,8 +31,8 @@ function jtnn_homepage_slideshow_shortcode() {
     while ( $loop->have_posts() ) : $loop->the_post();
 
         $currentPostID = get_the_ID();
-	    $postMeta = get_post_meta($currentPostID);
-		$post_URL = $postMeta['_url'][0];
+	$postMeta = get_post_meta($currentPostID);
+	$post_URL = $postMeta['_url'][0];
 
 	    if ( has_post_thumbnail() ) {
             $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($currentPostID), 'slideshow' );
@@ -70,14 +70,22 @@ function jtnn_homepage_slideshow_shortcode() {
         while ( $loop->have_posts() ) : $loop->the_post();
 
             $currentPostID = get_the_ID();
-	        $postMeta = get_post_meta($currentPostID);
+	    $postMeta = get_post_meta($currentPostID);
+	    $post_URL = $postMeta['_url'][0];
 
 	        if ( has_post_thumbnail() ) {
+	        	
+	       	    $href = '';
+            
+            	    if ($post_URL != '' AND $post_URL != null) {
+	                $href = " href='".$post_URL."'";
+	            }
+	        	
                 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($currentPostID), 'slideshow' );
                 $image = $thumb['0'];
 	            ob_start();
 	            ?>
-        <a href="<?php echo $postMeta['_url'][0]; ?>">
+        <a<?php echo $href; ?>>
         <img src="<?php echo $image ?>" data-thumb="<?php echo $image ?>" title="<?php echo $postMeta['_caption'][0]; ?>" alt="" />
         </a>
             <?php
