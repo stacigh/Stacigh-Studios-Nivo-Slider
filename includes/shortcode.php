@@ -9,12 +9,12 @@ function jtnn_homepage_slideshow_shortcode() {
 
     global $jtnn_homepage_slideshow_pluginURL;
 
-    $posts_needed = 4;
+    $posts_needed = 6;
     $currentMonth = (int)date('m');
 
     $args = array(  'post_type' => 'ss_hero_banner',
                     'post_status' => 'publish',
-                    'posts_per_page' => 4 ,
+                    'posts_per_page' => $posts_needed ,
                     'order' => 'DESC',
                     'order_by' => 'date',
                     'jtnnhpss' => 'monthly',
