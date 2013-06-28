@@ -108,7 +108,6 @@ function jtnn_homepage_slideshow_shortcode() {
     <script type="text/javascript">
     (function($) {})( jQuery );
 
-    jQuery(window).load(function() {
 	    jQuery('#slider').nivoSlider({
 	        effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
 	        //animSpeed: 500, // Slide transition speed
@@ -128,7 +127,6 @@ function jtnn_homepage_slideshow_shortcode() {
 	        lastSlide: function(){}, // Triggers when last slide is shown
 	        afterLoad: function(){} // Triggers when slider has loaded
 	    });
-	});
 
     </script>
 <?php
