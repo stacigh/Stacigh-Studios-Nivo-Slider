@@ -24,9 +24,7 @@ $jtnn_homepage_slideshow_pluginURL = plugin_dir_url(__FILE__);
 ------------------------------------------------- */
 
 include('includes/display-functions.php'); // Functions
-include('includes/admin-page.php'); // Settings page content & functions
 include('includes/shortcode.php'); // Handles shortcode
-//include('includes/taxonomy.php'); // Register Custom Taxonomy
 
 
 /* -- Register Custom Taxonomy
