@@ -4,12 +4,12 @@
 if ('shortcode.php' == basename($_SERVER['SCRIPT_FILENAME']))
     die ('<h1>Direct File Access Prohibited</h1>');
 
-add_action( 'init', 'jtnn_homepage_slideshow_taxonomy', 0);
+add_action( 'init', 'ss_slideshow_taxonomy', 0);
 
-function jtnn_homepage_slideshow_taxonomy() {
+function ss_slideshow_taxonomy() {
 
     $labels = array(
-		'name'              => 'JTNN Slideshow',
+		'name'              => 'SS Nivo Slider',
 	);
 
 	$args = array(
@@ -23,9 +23,9 @@ function jtnn_homepage_slideshow_taxonomy() {
 		'rewrite'                    => false,
 	);
 
-	register_taxonomy( 'jtnnhpss', 'ss_hero_banner', $args );
+	register_taxonomy( 'ssnivoslider', 'ss_hero_banner', $args );
 
-	register_taxonomy_for_object_type( 'jtnnhpss', 'ss_hero_banner' );
+	register_taxonomy_for_object_type( 'ssnivoslider', 'ss_hero_banner' );
 
 }
 

@@ -1,5 +1,5 @@
 <?php
-function jtnn_homepage_slideshow_codex () {
+function ss_slideshow_codex () {
     ob_start();
     ?>
 <h2>I can has info!</h2>

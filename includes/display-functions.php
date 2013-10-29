@@ -43,7 +43,7 @@ function ss_hero_banner_link(){
 	global $post;
 
 	// Noncename needed to verify where the data originated
-	wp_nonce_field( 'jtnn_hps_nonce', 'jtnn_hps_nonce' );
+	wp_nonce_field( 'ss_hps_nonce', 'ss_hps_nonce' );
 
 	// Get the url of the data if it's already been entered
 	$url = get_post_meta($post->ID, '_url', true);
@@ -70,8 +70,8 @@ function ss_hero_banner_cat_type(){
 	global $post;
 
 	// Get the image of the data if it's already been entered
-	//$cat_type = get_the_term_list($post->ID, 'jtnnhpss' );
-    if ( has_term('monthly', 'jtnnhpss', $post->ID) ) {
+	//$cat_type = get_the_term_list($post->ID, 'ssnivoslider' );
+    if ( has_term('monthly', 'ssnivoslider', $post->ID) ) {
         $cat_type = 'monthly';
     } else {
         $cat_type = 'rolling';
@@ -91,14 +91,14 @@ function ss_hero_banner_cat_type(){
 // http://codex.wordpress.org/Function_Reference/register_post_type
 // http://codex.wordpress.org/Post_Types
 // http://codex.wordpress.org/Function_Reference/add_meta_box
-add_action( 'save_post', 'jtnn_homepage_slideshow_post_save' );
-function jtnn_homepage_slideshow_post_save( $post_id ) {
+add_action( 'save_post', 'ss_slideshow_post_save' );
+function ss_slideshow_post_save( $post_id ) {
 
 /*
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 	return;
 */
-	if ( empty($_POST) || !wp_verify_nonce( $_POST['jtnn_hps_nonce'], 'jtnn_hps_nonce' ) )
+	if ( empty($_POST) || !wp_verify_nonce( $_POST['ss_hps_nonce'], 'ss_hps_nonce' ) )
 	return;
 /*
 	if ( 'page' == $_POST['post_type'] ) {
@@ -115,7 +115,7 @@ function jtnn_homepage_slideshow_post_save( $post_id ) {
 	$returned_caption = $_POST['_caption'];
 	update_post_meta( $post_id, '_caption', $returned_caption );
     $returned_cat_type = $_POST['_cat_type'];
-	wp_set_object_terms( $post_id, $returned_cat_type, 'jtnnhpss', false );
+	wp_set_object_terms( $post_id, $returned_cat_type, 'ssnivoslider', false );
 }
 
 ?>

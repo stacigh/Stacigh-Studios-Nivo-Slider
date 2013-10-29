@@ -2,7 +2,7 @@
 
 include ('settings-codex.php');
 
-class jtnn_homepage_slideshow_settings {
+class ss_slideshow_settings {
 
     function settings_page () {
         ob_start();
@@ -19,7 +19,7 @@ class jtnn_homepage_slideshow_settings {
         <img src="http://placekitten.com/300/200" />
     </p>
     <div class="tab codex">
-        <?php echo jtnn_homepage_slideshow_codex(); ?>
+        <?php echo ss_slideshow_codex(); ?>
     </div>
 
 </div>
@@ -31,12 +31,12 @@ class jtnn_homepage_slideshow_settings {
 
     function add_settings_page() {
         add_submenu_page('edit.php?post_type=ss_hero_banner',
-                         'JTNN Homepage Slideshow',
+                         'Stacigh Studios Nivo Slider',
                          'Settings',
                          'manage_options',
-                         'jtnn_homepage_slideshow', array('jtnn_homepage_slideshow_settings', 'settings_page'));
+                         'ss_slideshow', array('ss_slideshow_settings', 'settings_page'));
     }
 
 }
-add_action( 'admin_menu', array( 'jtnn_homepage_slideshow_settings', 'add_settings_page' ) );
+add_action( 'admin_menu', array( 'ss_slideshow_settings', 'add_settings_page' ) );
 ?>

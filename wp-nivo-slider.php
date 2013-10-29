@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: JTNN Homepage Slideshow
+Plugin Name: Stacigh Studios Nivo Slider
 Description: Adds a "Hero Banners" menu item that controls all banners for the homepage slideshow.
 Author: Stacigh Studios
 Author URI: http://www.stacighstudios.com
@@ -9,8 +9,8 @@ Version: 1.0
 
 /* -- Global Variables
 ------------------------------------------------- */
-$jtnn_homepage_slideshow_version = 1.0;
-$jtnn_homepage_slideshow_pluginURL = plugin_dir_url(__FILE__);
+$ss_slideshow_version = 1.0;
+$ss_slideshow_pluginURL = plugin_dir_url(__FILE__);
 
 /* -- Styles & Scripts
 ------------------------------------------------- */
@@ -29,12 +29,12 @@ include('includes/shortcode.php'); // Handles shortcode
 
 /* -- Register Custom Taxonomy
 _________________________________________________ */
-add_action( 'init', 'jtnn_homepage_slideshow_taxonomy', 0);
+add_action( 'init', 'ss_slideshow_taxonomy', 0);
 
-function jtnn_homepage_slideshow_taxonomy() {
+function ss_slideshow_taxonomy() {
 
     $labels = array(
-		'name'              => 'JTNN Slideshow',
+		'name'              => 'SS Nivo Slider',
 	);
 
 	$args = array(
@@ -48,9 +48,9 @@ function jtnn_homepage_slideshow_taxonomy() {
 		'rewrite'                    => false,
 	);
 
-	register_taxonomy( 'jtnnhpss', 'ss_hero_banner', $args );
+	register_taxonomy( 'ssnivoslider', 'ss_hero_banner', $args );
 
-	//register_taxonomy_for_object_type( 'jtnnhpss', 'ss_hero_banner' );
+	//register_taxonomy_for_object_type( 'ssnivoslider', 'ss_hero_banner' );
 
 }
 

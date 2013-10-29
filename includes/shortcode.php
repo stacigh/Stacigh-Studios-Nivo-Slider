@@ -5,9 +5,9 @@ if ('shortcode.php' == basename($_SERVER['SCRIPT_FILENAME']))
     die ('<h1>Direct File Access Prohibited</h1>');
 
 // Main shortcode function
-function jtnn_homepage_slideshow_shortcode() {
+function ss_slideshow_shortcode() {
 
-    global $jtnn_homepage_slideshow_pluginURL;
+    global $ss_slideshow_pluginURL;
 
     $posts_needed = 6;
     $currentMonth = (int)date('m');
@@ -17,7 +17,7 @@ function jtnn_homepage_slideshow_shortcode() {
                     'posts_per_page' => $posts_needed ,
                     'order' => 'DESC',
                     'order_by' => 'date',
-                    'jtnnhpss' => 'monthly',
+                    'ssnivoslider' => 'monthly',
                     'monthnum' => $currentMonth,
 
                   );
@@ -63,7 +63,7 @@ function jtnn_homepage_slideshow_shortcode() {
                         'posts_per_page' => $posts_needed ,
                         'order' => 'DESC',
                         'order_by' => 'date',
-                        'jtnnhpss' => 'rolling');
+                        'ssnivoslider' => 'rolling');
 
         $loop = new WP_Query( $args2 );
 
@@ -103,8 +103,8 @@ function jtnn_homepage_slideshow_shortcode() {
     ?>
 
 
-<!-- <script type="text/javascript" src="<?php echo $jtnn_homepage_slideshow_pluginURL . "jquery-1.9.0.min.js"; ?>"></script>
-    <script type="text/javascript" src="<?php echo $jtnn_homepage_slideshow_pluginURL . "jquery.nivo.slider.js"; ?>"></script>-->
+<!-- <script type="text/javascript" src="<?php echo $ss_slideshow_pluginURL . "jquery-1.9.0.min.js"; ?>"></script>
+    <script type="text/javascript" src="<?php echo $ss_slideshow_pluginURL . "jquery.nivo.slider.js"; ?>"></script>-->
     <script type="text/javascript">
     (function($) {})( jQuery );
 
@@ -135,26 +135,26 @@ function jtnn_homepage_slideshow_shortcode() {
     return $layout;
 }
 
-add_shortcode( 'jtnn_homepage_slideshow', 'jtnn_homepage_slideshow_shortcode');
+add_shortcode( 'ss_slideshow', 'ss_slideshow_shortcode');
 
 // Enqueue Styles related to slideshow
-function jtnn_homepage_slideshow_css () {
+function ss_slideshow_css () {
 
-    global $jtnn_homepage_slideshow_pluginURL;
+    global $ss_slideshow_pluginURL;
 
-    wp_enqueue_style('jtnn_homepage_slideshow_css', $jtnn_homepage_slideshow_pluginURL . "css/nivo-slider.css", false );
+    wp_enqueue_style('ss_slideshow_css', $ss_slideshow_pluginURL . "css/nivo-slider.css", false );
 }
 
-add_action( 'wp_enqueue_scripts', 'jtnn_homepage_slideshow_css' );
+add_action( 'wp_enqueue_scripts', 'ss_slideshow_css' );
 
 // Enqueue Scripts related to slideshow
-function jtnn_homepage_slideshow_js () {
+function ss_slideshow_js () {
 
-    global $jtnn_homepage_slideshow_pluginURL;
+    global $ss_slideshow_pluginURL;
 
     //wp_enqueue_script('jquery');
-    wp_enqueue_script('jtnn_nivoslider', $jtnn_homepage_slideshow_pluginURL . 'scripts/jquery.nivo.slider.js', array('jquery'), null);
+    wp_enqueue_script('ss_nivoslider', $ss_slideshow_pluginURL . 'scripts/jquery.nivo.slider.js', array('jquery'), null);
 }
 
-add_action( 'wp_enqueue_scripts', 'jtnn_homepage_slideshow_js' );
+add_action( 'wp_enqueue_scripts', 'ss_slideshow_js' );
 ?>
